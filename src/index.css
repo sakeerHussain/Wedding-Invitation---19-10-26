@@ -1,1 +1,34 @@
 @import "tailwindcss";
+
+@theme {
+  --color-ivory: #f6f0e6;
+  --color-blush: #d3a3a0;
+  --color-gold: #a3834f;
+  --color-ink: #493a32;
+  --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Manrope', 'Segoe UI', Arial, sans-serif;
+  --font-names: 'Great Vibes', 'Lora', Georgia, serif;
+}
+
+@font-face { font-family: 'Lora'; src: url('/fonts/lora.woff2') format('woff2'); font-weight: 400 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Lora'; src: url('/fonts/lora-italic.woff2') format('woff2'); font-weight: 400 600; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url('/fonts/manrope.woff2') format('woff2'); font-weight: 400 600; font-style: normal; font-display: swap; }
+
+
+@font-face { font-family: 'Great Vibes'; src: url('/fonts/great-vibes.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+
+@font-face { font-family: 'Pinyon Script'; src: url('/fonts/pinyon-script.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+
+:root { font-family: var(--font-sans); color: #493a32; background: #f6f0e6; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 28px; }
+body { margin: 0; min-width: 320px; }
+button, a { -webkit-tap-highlight-color: transparent; }
+button { font: inherit; }
+button, a { touch-action: manipulation; }
+button { cursor: pointer; }
+button:disabled { cursor: default; }
+a { color: inherit; }
+button:focus-visible, a:focus-visible { outline: 2px solid #835e43; outline-offset: 6px; }
+::selection { background: #ddbab4; color: #493a32; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
