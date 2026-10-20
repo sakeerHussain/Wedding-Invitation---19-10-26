@@ -10,14 +10,14 @@
   --font-names: 'Great Vibes', 'Lora', Georgia, serif;
 }
 
-@font-face { font-family: 'Lora'; src: url('/fonts/lora.woff2') format('woff2'); font-weight: 400 600; font-style: normal; font-display: swap; }
-@font-face { font-family: 'Lora'; src: url('/fonts/lora-italic.woff2') format('woff2'); font-weight: 400 600; font-style: italic; font-display: swap; }
-@font-face { font-family: 'Manrope'; src: url('/fonts/manrope.woff2') format('woff2'); font-weight: 400 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Lora'; src: url('./assets/fonts/lora.woff2') format('woff2'); font-weight: 400 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Lora'; src: url('./assets/fonts/lora-italic.woff2') format('woff2'); font-weight: 400 600; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Manrope'; src: url('./assets/fonts/manrope.woff2') format('woff2'); font-weight: 400 600; font-style: normal; font-display: swap; }
 
 
-@font-face { font-family: 'Great Vibes'; src: url('/fonts/great-vibes.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Great Vibes'; src: url('./assets/fonts/great-vibes.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
 
-@font-face { font-family: 'Pinyon Script'; src: url('/fonts/pinyon-script.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Pinyon Script'; src: url('./assets/fonts/pinyon-script.woff2') format('woff2'); font-weight: 400; font-style: normal; font-display: swap; }
 
 :root { font-family: var(--font-sans); color: #493a32; background: #f6f0e6; font-synthesis: none; text-rendering: optimizeLegibility; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
 * { box-sizing: border-box; }

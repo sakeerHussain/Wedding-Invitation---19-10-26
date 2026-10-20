@@ -2,6 +2,18 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import Lenis from 'lenis'
 import 'lenis/dist/lenis.css'
 
+export function usePageVisibility() {
+  useEffect(() => {
+    const update = () => document.documentElement.toggleAttribute('data-invitation-hidden', document.hidden)
+    document.addEventListener('visibilitychange', update)
+    update()
+    return () => {
+      document.removeEventListener('visibilitychange', update)
+      document.documentElement.removeAttribute('data-invitation-hidden')
+    }
+  }, [])
+}
+
 export function useReducedMotion() {
   const [reduced, setReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
   useEffect(() => {
@@ -17,7 +29,7 @@ export function useInvitationScroll(enabled) {
   useEffect(() => {
     if (!enabled || navigator.connection?.saveData) return
     const lenis = new Lenis({
-      autoRaf: true,
+      autoRaf: false,
       lerp: 0.1,
       smoothWheel: true,
       syncTouch: false,
@@ -39,11 +51,7 @@ export function useInvitationScroll(enabled) {
         for (const element of scenes.get(scene)) {
           const limit = Number(desktop ? element.dataset.parallaxDesktop : element.dataset.parallaxMobile)
           const direction = Number(element.dataset.parallaxDirection || 1)
-          // Corner flowers leave the viewport early, so give them more travel
-          // during the first part of the scroll without exceeding their bounds.
-          const strength = Number(element.dataset.parallaxStrength || 1)
-          const travel = Math.max(-1, Math.min(1, progress * strength))
-          element.style.setProperty('--parallax-y', `${(travel * limit * direction).toFixed(2)}px`)
+          element.style.setProperty('--parallax-y', `${(progress * limit * direction).toFixed(2)}px`)
         }
       }
     }
@@ -83,14 +91,32 @@ export function useInvitationScroll(enabled) {
       })
     }
     const unsubscribe = lenis.on('scroll', update)
+    // Keep a single Lenis loop and suspend it while the page is backgrounded.
+    let frame
+    const tick = time => {
+      lenis.raf(time)
+      frame = requestAnimationFrame(tick)
+    }
+    const onVisibility = () => {
+      cancelAnimationFrame(frame)
+      if (!document.hidden) {
+        lenis.resize()
+        update()
+        frame = requestAnimationFrame(tick)
+      }
+    }
     window.addEventListener('resize', update, { passive: true })
     document.addEventListener('click', onAnchorClick)
+    document.addEventListener('visibilitychange', onVisibility)
+    onVisibility()
     update()
     return () => {
+      cancelAnimationFrame(frame)
       unsubscribe()
       observer.disconnect()
       window.removeEventListener('resize', update)
       document.removeEventListener('click', onAnchorClick)
+      document.removeEventListener('visibilitychange', onVisibility)
       lenis.destroy()
       elements.forEach(element => {
         element.style.removeProperty('--parallax-y')

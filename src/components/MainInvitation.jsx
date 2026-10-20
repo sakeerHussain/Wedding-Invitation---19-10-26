@@ -1,6 +1,8 @@
 import Ornament, { Icon } from './Ornament'
 import CalendarLink from './CalendarLink'
 import { invitation } from '../data/invitation'
+import { assets } from '../lib/assets'
+import SceneArt from './SceneArt'
 
 // Keep the unconfigured preview graceful without inventing a couple's names.
 const previewName = (name, fallback) => /^(Bride|Groom)[’']s name$/.test(name) ? fallback : name
@@ -15,11 +17,11 @@ export default function MainInvitation({ headingRef }) {
     <main id="invitation" className="wedding-document">
       <section className="hero" id="beginning" aria-labelledby="couple-title" data-parallax-scene="">
         <picture>
-          <source media="(min-width: 1024px)" srcSet="/images/stationery-layered-desktop.webp" />
-          <img className="hero-stationery" src="/images/stationery-layered.webp" width="900" height="1800" alt="" fetchPriority="high" />
+          <source media="(min-width: 1024px)" srcSet={assets.cardDesktop} />
+          <img className="hero-stationery" src={assets.cardPortrait} width="900" height="1800" alt="" decoding="async" fetchPriority="high" />
         </picture>
-        <div className="floral-depth hero-floral-depth" data-parallax="" data-parallax-mobile="28" data-parallax-desktop="56" data-parallax-strength="2.5" aria-hidden="true">
-          <img src="/images/floral-corner-layer.webp" width="520" height="433" alt="" decoding="async" />
+        <div className="floral-depth hero-floral-depth" data-parallax="" data-parallax-mobile="8" data-parallax-desktop="16" aria-hidden="true">
+          <img src={assets.flowers} width="520" height="433" alt="" decoding="async" />
         </div>
         <div className="hero-content">
           <p className="hero-invitation-line">With grateful hearts, <br className="invitation-break" />we invite you to celebrate <br />our Nikah</p>
@@ -89,11 +91,10 @@ export default function MainInvitation({ headingRef }) {
       </section>
 
       <section className={`interlude ${invitation.photoSrc ? 'has-photo' : ''}`} aria-label="A lifetime together" data-parallax-scene="">
-        <div className="interlude-backdrop" data-parallax="" data-parallax-mobile="30" data-parallax-desktop="60">
-          <picture>
-            {!invitation.photoSrc && <source media="(min-width: 1024px)" srcSet="/images/scene-desktop.webp" />}
-            <img src={invitation.photoSrc || '/images/scene-v2.webp'} alt={invitation.photoSrc ? invitation.photoAlt : ''} width="900" height="1800" loading="lazy" decoding="async" />
-          </picture>
+        <div className="interlude-backdrop" data-parallax="" data-parallax-mobile="12" data-parallax-desktop="24">
+          {invitation.photoSrc
+            ? <picture><img src={invitation.photoSrc} alt={invitation.photoAlt} width="900" height="1800" loading="lazy" decoding="async" /></picture>
+            : <SceneArt />}
         </div>
         <div className="vow-note">
           <span className="eyebrow">BY HIS GRACE, SIDE BY SIDE</span>
@@ -128,13 +129,10 @@ export default function MainInvitation({ headingRef }) {
 
       <footer className="closing section-space" data-parallax-scene="">
         <div className="closing-art" aria-hidden="true">
-          <picture>
-            <source media="(min-width: 1024px)" srcSet="/images/scene-desktop.webp" />
-            <img src="/images/scene-v2.webp" width="900" height="1800" alt="" loading="lazy" />
-          </picture>
+          <SceneArt />
         </div>
-        <div className="floral-depth closing-floral-depth" data-parallax="" data-parallax-mobile="24" data-parallax-desktop="48" data-parallax-direction="-1" aria-hidden="true">
-          <img src="/images/floral-corner-layer.webp" width="520" height="433" alt="" loading="lazy" decoding="async" />
+        <div className="floral-depth closing-floral-depth" data-parallax="" data-parallax-mobile="6" data-parallax-desktop="12" data-parallax-direction="-1" aria-hidden="true">
+          <img src={assets.flowers} width="520" height="433" alt="" loading="lazy" decoding="async" />
         </div>
         <div className="closing-content">
           <Ornament />
