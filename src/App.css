@@ -83,8 +83,12 @@
 @keyframes scene-reveal { to { opacity: 0; } }
 
 .wedding-document { max-width: 800px; margin: 0 auto; background: #f4ead7; box-shadow: 0 0 90px #5b3d1b29; }
-.hero { position: relative; isolation: isolate; container-type: inline-size; width: 100%; aspect-ratio: 1 / 2; min-height: 780px; max-width: 630px; margin: 0 auto; background: #f3e6d0; }
+.hero { position: relative; isolation: isolate; container-type: inline-size; width: 100%; aspect-ratio: 1 / 2; min-height: 780px; max-width: 630px; margin: 0 auto; background: #f3e6d0; overflow: clip; }
 .hero-stationery { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: fill; z-index: -1; }
+.floral-depth { position: absolute; pointer-events: none; transform: translate3d(0, var(--parallax-y, 0px), 0); }
+.floral-depth img { display: block; width: 100%; height: auto; }
+.hero-floral-depth { top: -18px; left: -12px; width: 64%; z-index: 0; }
+[data-parallax-active] { will-change: transform; }
 .hero-content { position: absolute; top: 27%; bottom: 25%; left: 19%; right: 19%; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: space-between; }
 .hero-invitation-line { text-transform: uppercase; font-family: var(--font-serif); font-size: clamp(10px, 2.8cqw, 16px); line-height: 1.7; font-weight: 600; letter-spacing: .16em; margin: 0; }
 .hero-content .ornament { width: 140px; max-width: 70%; height: 20px; margin: 10px auto; flex-shrink: 0; }
@@ -173,10 +177,12 @@
 .venue-schedule p > span:last-child { font-size: 12px; line-height: 1.7; color: #735b3f; }
 .venue-insert .button { margin-top: 27px; }
 .venue-note { font-family: var(--font-serif); font-style: italic; font-size: 21px; color: #8c6c46; margin: 35px 0 0; }
-.closing { position: relative; isolation: isolate; text-align: center; min-height: 680px; display: grid; place-items: center; padding-bottom: 115px; }
+.closing { position: relative; isolation: isolate; text-align: center; min-height: 680px; display: grid; place-items: center; padding-bottom: 115px; overflow: clip; }
+.closing-floral-depth { bottom: -22px; right: -16px; width: clamp(130px, 36%, 300px); z-index: 0; }
+.closing-floral-depth img { transform: rotate(180deg); }
 .closing-art { position: absolute; inset: 0; z-index: -1; overflow: hidden; }
 .closing-art img { width: 100%; height: 100%; object-fit: cover; object-position: center bottom; }
-.closing-content { width: 100%; max-width: 490px; padding: 32px 15px; background: radial-gradient(ellipse, #f7eddbed 30%, #f7eddb00 75%); }
+.closing-content { position: relative; z-index: 1; width: 100%; max-width: 490px; padding: 32px 15px; background: radial-gradient(ellipse, #f7eddbed 30%, #f7eddb00 75%); }
 .closing-content .ornament { margin-top: 0; }
 .closing h2 { margin-top: 24px; font-size: clamp(40px, 5.5vw, 60px); }
 .closing h2 em { color: #97703c; }
@@ -209,7 +215,7 @@
   35% { transform: rotate(calc(var(--tilt) + 45deg)) rotateY(65deg) rotateX(-20deg); }
   70% { transform: rotate(calc(var(--tilt) - 30deg)) rotateY(-40deg) rotateX(30deg); }
 }
-.motion-still .interlude-backdrop { transform: none; }
+.motion-still .interlude-backdrop, .motion-still .floral-depth { transform: none; }
 .skip-link { position: fixed; top: 8px; left: 8px; z-index: 50; background: #503719; color: white; padding: 12px; transform: translateY(-180%); }
 .skip-link:focus { transform: translateY(0); }
 
@@ -336,6 +342,8 @@
     box-shadow: none;
   }
   .hero-content { top: 30%; bottom: 23%; left: 18%; right: 18%; }
+  .hero-floral-depth { top: -20px; left: -18px; width: 40%; max-width: 560px; }
+  .closing-floral-depth { width: clamp(220px, 25%, 340px); }
   .hero-invitation-line { font-size: clamp(11px, 1.12cqw, 16px); line-height: 1.8; letter-spacing: .13em; max-width: 620px; }
   .hero-invitation-line br { display: none; }
   .hero-invitation-line .invitation-break { display: block; }

@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import Lenis from 'lenis'
+import 'lenis/dist/lenis.css'
 
 export function useReducedMotion() {
   const [reduced, setReduced] = useState(() => window.matchMedia('(prefers-reduced-motion: reduce)').matches)
@@ -11,28 +13,85 @@ export function useReducedMotion() {
   return reduced
 }
 
-export function useParallax(enabled) {
+export function useInvitationScroll(enabled) {
   useEffect(() => {
     if (!enabled || navigator.connection?.saveData) return
+    const lenis = new Lenis({
+      autoRaf: true,
+      lerp: 0.1,
+      smoothWheel: true,
+      syncTouch: false,
+    })
     const elements = [...document.querySelectorAll('[data-parallax]')]
-    let frame = 0
+    const scenes = new Map()
+    for (const element of elements) {
+      const scene = element.closest('[data-parallax-scene]') || element.parentElement
+      if (!scenes.has(scene)) scenes.set(scene, [])
+      scenes.get(scene).push(element)
+    }
+    const visible = new Set()
     const update = () => {
-      frame = 0
-      for (const element of elements) {
-        const { top, height } = element.parentElement.getBoundingClientRect()
-        if (top < window.innerHeight && top + height > 0) {
-          const distance = (window.innerHeight / 2 - top - height / 2) * 0.035
-          element.style.setProperty('--parallax-y', `${Math.max(-24, Math.min(24, distance))}px`)
+      const desktop = window.innerWidth >= 1024
+      // Read section geometry first, then write transforms to avoid layout thrashing.
+      const measurements = [...visible].map(scene => ({ scene, rect: scene.getBoundingClientRect() }))
+      for (const { scene, rect: { top, height } } of measurements) {
+        const progress = Math.max(-1, Math.min(1, (window.innerHeight - 2 * top - height) / (window.innerHeight + height)))
+        for (const element of scenes.get(scene)) {
+          const limit = Number(desktop ? element.dataset.parallaxDesktop : element.dataset.parallaxMobile)
+          const direction = Number(element.dataset.parallaxDirection || 1)
+          element.style.setProperty('--parallax-y', `${(progress * limit * direction).toFixed(2)}px`)
         }
       }
     }
-    const onScroll = () => { if (!frame) frame = requestAnimationFrame(update) }
-    window.addEventListener('scroll', onScroll, { passive: true })
+    const observer = new IntersectionObserver(entries => {
+      for (const { target, isIntersecting } of entries) {
+        if (isIntersecting) visible.add(target)
+        else visible.delete(target)
+        for (const element of scenes.get(target)) element.toggleAttribute('data-parallax-active', isIntersecting)
+      }
+      update()
+    }, { rootMargin: '32px 0px' })
+    for (const scene of scenes.keys()) observer.observe(scene)
+    // Intercept only this page's section links; keep external links native.
+    const onAnchorClick = event => {
+      if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return
+      const link = event.target instanceof Element ? event.target.closest('a[href]') : null
+      if (!link || link.hasAttribute('download') || (link.target && link.target !== '_self')) return
+      const url = new URL(link.href, window.location.href)
+      if (url.origin !== window.location.origin || url.pathname !== window.location.pathname || url.search !== window.location.search || !url.hash) return
+      let id
+      try { id = decodeURIComponent(url.hash.slice(1)) } catch { return }
+      const target = document.getElementById(id)
+      if (!target) return
+      event.preventDefault()
+      if (window.location.hash !== url.hash) window.history.pushState(null, '', url.hash)
+      lenis.scrollTo(target, {
+        duration: 0.9,
+        onComplete: () => {
+          // Preserve the keyboard focus behavior of a native section link.
+          const needsTabIndex = !target.hasAttribute('tabindex') && target.tabIndex < 0
+          if (needsTabIndex) {
+            target.setAttribute('tabindex', '-1')
+            target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true })
+          }
+          target.focus({ preventScroll: true })
+        },
+      })
+    }
+    const unsubscribe = lenis.on('scroll', update)
+    window.addEventListener('resize', update, { passive: true })
+    document.addEventListener('click', onAnchorClick)
     update()
     return () => {
-      window.removeEventListener('scroll', onScroll)
-      cancelAnimationFrame(frame)
-      elements.forEach(element => element.style.removeProperty('--parallax-y'))
+      unsubscribe()
+      observer.disconnect()
+      window.removeEventListener('resize', update)
+      document.removeEventListener('click', onAnchorClick)
+      lenis.destroy()
+      elements.forEach(element => {
+        element.style.removeProperty('--parallax-y')
+        element.removeAttribute('data-parallax-active')
+      })
     }
   }, [enabled])
 }

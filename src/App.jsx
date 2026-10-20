@@ -4,7 +4,7 @@ import MainInvitation from './components/MainInvitation'
 import Petals from './components/Petals'
 import { Icon } from './components/Ornament'
 import { invitation } from './data/invitation'
-import { useMusic, useParallax, useReducedMotion } from './hooks/useExperience'
+import { useMusic, useInvitationScroll, useReducedMotion } from './hooks/useExperience'
 import './App.css'
 
 export default function App() {
@@ -22,7 +22,7 @@ export default function App() {
   const isOpen = phase === 'open'
   const mainVisible = phase === 'revealing' || isOpen
   const motionEnabled = isOpen && !reducedMotion && !motionPaused
-  useParallax(motionEnabled)
+  useInvitationScroll(motionEnabled)
 
   useEffect(() => {
     const previous = document.body.style.overflow
@@ -42,8 +42,12 @@ export default function App() {
       const artwork = new Image()
       artwork.fetchPriority = 'low'
       artwork.decoding = 'async'
-      artwork.src = desktop.matches ? '/images/stationery-desktop.webp' : '/images/stationery-v2.webp'
-      artworkReady.current = artwork.decode().catch(() => {})
+      artwork.src = desktop.matches ? '/images/stationery-layered-desktop.webp' : '/images/stationery-layered.webp'
+      const flowers = new Image()
+      flowers.fetchPriority = 'low'
+      flowers.decoding = 'async'
+      flowers.src = '/images/floral-corner-layer.webp'
+      artworkReady.current = Promise.all([artwork.decode(), flowers.decode()]).catch(() => {})
     }
     warmArtwork()
     desktop.addEventListener('change', warmArtwork)

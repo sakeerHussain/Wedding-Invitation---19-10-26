@@ -13,11 +13,14 @@ export default function MainInvitation({ headingRef }) {
 
   return (
     <main id="invitation" className="wedding-document">
-      <section className="hero" id="beginning" aria-labelledby="couple-title">
+      <section className="hero" id="beginning" aria-labelledby="couple-title" data-parallax-scene="">
         <picture>
-          <source media="(min-width: 1024px)" srcSet="/images/stationery-desktop.webp" />
-          <img className="hero-stationery" src="/images/stationery-v2.webp" width="900" height="1800" alt="" fetchPriority="high" />
+          <source media="(min-width: 1024px)" srcSet="/images/stationery-layered-desktop.webp" />
+          <img className="hero-stationery" src="/images/stationery-layered.webp" width="900" height="1800" alt="" fetchPriority="high" />
         </picture>
+        <div className="floral-depth hero-floral-depth" data-parallax="" data-parallax-mobile="8" data-parallax-desktop="16" aria-hidden="true">
+          <img src="/images/floral-corner-layer.webp" width="520" height="433" alt="" decoding="async" />
+        </div>
         <div className="hero-content">
           <p className="hero-invitation-line">With grateful hearts, <br className="invitation-break" />we invite you to celebrate <br />our Nikah</p>
           <Ornament />
@@ -85,8 +88,8 @@ export default function MainInvitation({ headingRef }) {
         </div>
       </section>
 
-      <section className={`interlude ${invitation.photoSrc ? 'has-photo' : ''}`} aria-label="A lifetime together">
-        <div className="interlude-backdrop" data-parallax="">
+      <section className={`interlude ${invitation.photoSrc ? 'has-photo' : ''}`} aria-label="A lifetime together" data-parallax-scene="">
+        <div className="interlude-backdrop" data-parallax="" data-parallax-mobile="12" data-parallax-desktop="24">
           <picture>
             {!invitation.photoSrc && <source media="(min-width: 1024px)" srcSet="/images/scene-desktop.webp" />}
             <img src={invitation.photoSrc || '/images/scene-v2.webp'} alt={invitation.photoSrc ? invitation.photoAlt : ''} width="900" height="1800" loading="lazy" decoding="async" />
@@ -123,12 +126,15 @@ export default function MainInvitation({ headingRef }) {
         <p className="venue-note">Your journey to us means the world.</p>
       </section>
 
-      <footer className="closing section-space">
+      <footer className="closing section-space" data-parallax-scene="">
         <div className="closing-art" aria-hidden="true">
           <picture>
             <source media="(min-width: 1024px)" srcSet="/images/scene-desktop.webp" />
             <img src="/images/scene-v2.webp" width="900" height="1800" alt="" loading="lazy" />
           </picture>
+        </div>
+        <div className="floral-depth closing-floral-depth" data-parallax="" data-parallax-mobile="6" data-parallax-desktop="12" data-parallax-direction="-1" aria-hidden="true">
+          <img src="/images/floral-corner-layer.webp" width="520" height="433" alt="" loading="lazy" decoding="async" />
         </div>
         <div className="closing-content">
           <Ornament />
