@@ -18,7 +18,7 @@ export default function MainInvitation({ headingRef }) {
           <source media="(min-width: 1024px)" srcSet="/images/stationery-layered-desktop.webp" />
           <img className="hero-stationery" src="/images/stationery-layered.webp" width="900" height="1800" alt="" fetchPriority="high" />
         </picture>
-        <div className="floral-depth hero-floral-depth" data-parallax="" data-parallax-mobile="8" data-parallax-desktop="16" aria-hidden="true">
+        <div className="floral-depth hero-floral-depth" data-parallax="" data-parallax-mobile="28" data-parallax-desktop="56" data-parallax-strength="2.5" aria-hidden="true">
           <img src="/images/floral-corner-layer.webp" width="520" height="433" alt="" decoding="async" />
         </div>
         <div className="hero-content">
@@ -89,7 +89,7 @@ export default function MainInvitation({ headingRef }) {
       </section>
 
       <section className={`interlude ${invitation.photoSrc ? 'has-photo' : ''}`} aria-label="A lifetime together" data-parallax-scene="">
-        <div className="interlude-backdrop" data-parallax="" data-parallax-mobile="12" data-parallax-desktop="24">
+        <div className="interlude-backdrop" data-parallax="" data-parallax-mobile="30" data-parallax-desktop="60">
           <picture>
             {!invitation.photoSrc && <source media="(min-width: 1024px)" srcSet="/images/scene-desktop.webp" />}
             <img src={invitation.photoSrc || '/images/scene-v2.webp'} alt={invitation.photoSrc ? invitation.photoAlt : ''} width="900" height="1800" loading="lazy" decoding="async" />
@@ -133,7 +133,7 @@ export default function MainInvitation({ headingRef }) {
             <img src="/images/scene-v2.webp" width="900" height="1800" alt="" loading="lazy" />
           </picture>
         </div>
-        <div className="floral-depth closing-floral-depth" data-parallax="" data-parallax-mobile="6" data-parallax-desktop="12" data-parallax-direction="-1" aria-hidden="true">
+        <div className="floral-depth closing-floral-depth" data-parallax="" data-parallax-mobile="24" data-parallax-desktop="48" data-parallax-direction="-1" aria-hidden="true">
           <img src="/images/floral-corner-layer.webp" width="520" height="433" alt="" loading="lazy" decoding="async" />
         </div>
         <div className="closing-content">

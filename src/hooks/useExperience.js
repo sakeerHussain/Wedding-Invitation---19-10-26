@@ -39,7 +39,11 @@ export function useInvitationScroll(enabled) {
         for (const element of scenes.get(scene)) {
           const limit = Number(desktop ? element.dataset.parallaxDesktop : element.dataset.parallaxMobile)
           const direction = Number(element.dataset.parallaxDirection || 1)
-          element.style.setProperty('--parallax-y', `${(progress * limit * direction).toFixed(2)}px`)
+          // Corner flowers leave the viewport early, so give them more travel
+          // during the first part of the scroll without exceeding their bounds.
+          const strength = Number(element.dataset.parallaxStrength || 1)
+          const travel = Math.max(-1, Math.min(1, progress * strength))
+          element.style.setProperty('--parallax-y', `${(travel * limit * direction).toFixed(2)}px`)
         }
       }
     }
