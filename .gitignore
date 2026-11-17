@@ -22,3 +22,9 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local design screenshots and generated audit reports
+/design/
+/.taste-skill/
+/design-qa.md
+/DESIGN-REFINEMENT-QA.md

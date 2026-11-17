@@ -140,8 +140,6 @@ export default function MainInvitation({ headingRef }) {
           <h2>Our beginning.<br /><em>Made brighter by you.</em></h2>
           <p>{invitation.closing}</p>
           <p className="closing-names">{invitation.bride.name} <em>&</em> {invitation.groom.name}</p>
-          {invitation.sharingJoy?.length > 0 && <div className="sharing-joy"><span className="eyebrow">SHARING IN THEIR JOY</span><p>{invitation.sharingJoy.join(', ').replace(/, ([^,]*)$/, ' and $1')}</p></div>}
-          {invitation.contact.phone && <a className="text-button" href={`tel:${invitation.contact.phone.replace(/[^+\d]/g, '')}`}>{invitation.contact.label}</a>}
           <p className="closing-arabic" lang="ar" dir="rtl">إِنْ شَاءَ ٱللَّٰهُ</p>
           <span className="eyebrow closing-signoff">A BEAUTIFUL BEGINNING, TOGETHER.</span>
         </div>

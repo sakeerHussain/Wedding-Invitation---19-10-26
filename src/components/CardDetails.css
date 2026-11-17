@@ -13,3 +13,8 @@
 @media (max-width: 600px) {
   #celebration .event-list { margin-top: 32px; }
 }
+
+/* Keep the closing names, Arabic and sign-off evenly spaced. */
+.closing-content .closing-names { margin: 28px 0 24px; }
+.closing-content .closing-arabic { margin: 0 0 24px; }
+.closing-content .closing-signoff { display: block; }
