@@ -1,0 +1,386 @@
+{
+ "start": "2026-11-16T06:24:08.700Z",
+ "round": 3,
+ "idle": 0,
+ "errors": 0,
+ "status": "open",
+ "history": [
+  {
+   "at": "2026-11-16T06:29:33.934Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 9,
+   "round": 1,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-16T06:34:38.325Z",
+   "mode": "manual",
+   "status": "fail",
+   "fails": 8,
+   "round": 2,
+   "reused": false,
+   "stopHookActive": false
+  },
+  {
+   "at": "2026-11-16T06:37:56.111Z",
+   "mode": "manual",
+   "status": "open",
+   "fails": 8,
+   "round": 3,
+   "reused": false,
+   "stopHookActive": false
+  }
+ ],
+ "max": 3,
+ "marker": {
+  "page": null,
+  "url": "http://127.0.0.1:5173/",
+  "root": null,
+  "kind": "place",
+  "category": "Islamic wedding invitation",
+  "primary": "Open your invitation",
+  "rounds": 3,
+  "start": "2026-11-16T06:24:08.700Z",
+  "by": "gate.mjs --start"
+ },
+ "manual": true,
+ "roundKey": "f7471a19fc56eb4a:da39a3ee",
+ "roundFree": false,
+ "idleFree": false,
+ "blockKey": null,
+ "fp": "f7471a19fc56eb4a",
+ "page": "http://127.0.0.1:5173/",
+ "found": {
+  "fails": [
+   {
+    "check": "cta",
+    "where": "div#root",
+    "msg": "the hero has no button (the nav's does not count)",
+    "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "cta"
+    ],
+    "wheres": [
+     "div#root"
+    ]
+   },
+   {
+    "check": "copy-headline",
+    "where": "div.invitation-app.motion-still > section.intro > div.intro-heading > h1.bismillah \"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\"",
+    "msg": "\"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\" does not name what is sold (islamic wedding invitation, islamic, wedding, invitation, from flags)",
+    "fix": "put the category noun in the h1 (and who it is for, or where), in 2 to 8 words",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "copy-headline"
+    ],
+    "wheres": [
+     "div.invitation-app.motion-still > section.intro > div.intro-heading > h1.bismillah \"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\""
+    ]
+   },
+   {
+    "check": "copy-fact",
+    "where": "div.invitation-app.motion-still > section.intro > div.intro-heading > h1.bismillah \"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\"",
+    "msg": "the first screen holds no number, price, date, place, platform or genre",
+    "fix": "put one hard fact from the brief on the first screen: a number, a price, a date, the place, the platforms it runs on or a game's genre; take it from the brief or remove the claim",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "copy-fact"
+    ],
+    "wheres": [
+     "div.invitation-app.motion-still > section.intro > div.intro-heading > h1.bismillah \"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\""
+    ]
+   },
+   {
+    "check": "tilt",
+    "where": "section.intro > div.envelope-scene > button.envelope-button > span.envelope-stage \"WITH LOVE, YOU ARE INVITED A & S 24 DECE\"",
+    "msg": "rotated -8.0°",
+    "fix": "set it straight",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency",
+    "ids": [
+     "tilt"
+    ],
+    "wheres": [
+     "section.intro > div.envelope-scene > button.envelope-button > span.envelope-stage \"WITH LOVE, YOU ARE INVITED A & S 24 DECE\""
+    ]
+   },
+   {
+    "check": "effect-kind",
+    "where": "(the page)",
+    "msg": "a place page (--type) moves with the scroll: scroll libraries or timelines (Lenis): effects fit tech, gaming and software pages and a product with a technical subject, never a place, shop or service page (house rule)",
+    "fix": "take the scroll-driven motion off: on a place, shop or service page the page scrolls plainly and the parts sit still",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "effect-kind"
+    ],
+    "wheres": [
+     "(the page)"
+    ]
+   },
+   {
+    "check": "moment-none",
+    "where": "(the page)",
+    "msg": "a place page (--type) deals no moment: every kind carries one, two on a long page (moments.md)",
+    "fix": "deal one (moments.mjs pick --page place --photo) and mount it in its own section",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "moment-none"
+    ],
+    "wheres": [
+     "(the page)"
+    ]
+   },
+   {
+    "check": "container-edges",
+    "where": "div#root \"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِWI\"",
+    "msg": "a <div> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+    "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+    "widths": [
+     1440
+    ],
+    "from": "consistency",
+    "ids": [
+     "container-edges"
+    ],
+    "wheres": [
+     "div#root \"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِWI\""
+    ]
+   },
+   {
+    "check": "container",
+    "where": "page",
+    "msg": "no .wrap",
+    "fix": "put the content in one .wrap",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "layout",
+    "ids": [
+     "container"
+    ],
+    "wheres": [
+     "page"
+    ]
+   }
+  ],
+  "warns": [
+   {
+    "check": "copy-headline",
+    "where": "div.invitation-app.motion-still > section.intro > div.intro-heading > h1.bismillah \"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\"",
+    "msg": "the h1 has 0 words (2 to 8 read at a glance)",
+    "fix": "put the category noun in the h1 (and who it is for, or where), in 2 to 8 words",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "heading-scale",
+    "where": "(the page)",
+    "msg": "the page has no visible h1",
+    "fix": "size headings by level: the h1 largest, one size per level, each level below the one above",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "contrast",
+    "where": "button.envelope-button > span.envelope-stage > span.envelope-letter > span.letter-title.letter-monogram \"A & S\"",
+    "msg": "large text over a picture reads at 1.5:1 at its worst tenth (needs 3:1), on a busy ground (and 1 more like it: \"&\")",
+    "fix": "put the text on a calm part of the picture, or on a solid panel",
+    "widths": [
+     1440,
+     390
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "font-load",
+    "where": "div.invitation-app.motion-still > section.intro > div.intro-heading > h1.bismillah \"Traditional Arabic\"",
+    "msg": "\"Traditional Arabic\" is asked for by the h1 but never loaded (no font link or @font-face loads it): it shows in its fallback",
+    "fix": "load every family the type asks for: name it in the font link as start.mjs prints it, spelt as Google Fonts spells it, or ask for a family the page loads",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   },
+   {
+    "check": "skip-link",
+    "where": "div.invitation-app.motion-still > section.intro > div.envelope-scene:nth-of-type(3) > button.envelope-button \"Open wedding invitation with sound\"",
+    "msg": "the first Tab stop is \"Open wedding invitation with sound\", not a skip link: a keyboard user tabs through the whole nav on every visit",
+    "fix": "add the starter's skip link as the header's first child: <a class=\"skip-link\" href=\"#top\">Skip to content</a>",
+    "widths": [
+     1440
+    ],
+    "from": "consistency"
+   }
+  ],
+  "crashed": [],
+  "seconds": {
+   "consistency": 52,
+   "layout": 16
+  }
+ },
+ "open": [
+  {
+   "check": "cta",
+   "where": "div#root",
+   "msg": "the hero has no button (the nav's does not count)",
+   "fix": "add the action: a button in the hero, one on every priced item, one in the closing section",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "cta"
+   ],
+   "wheres": [
+    "div#root"
+   ]
+  },
+  {
+   "check": "copy-headline",
+   "where": "div.invitation-app.motion-still > section.intro > div.intro-heading > h1.bismillah \"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\"",
+   "msg": "\"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\" does not name what is sold (islamic wedding invitation, islamic, wedding, invitation, from flags)",
+   "fix": "put the category noun in the h1 (and who it is for, or where), in 2 to 8 words",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "copy-headline"
+   ],
+   "wheres": [
+    "div.invitation-app.motion-still > section.intro > div.intro-heading > h1.bismillah \"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\""
+   ]
+  },
+  {
+   "check": "copy-fact",
+   "where": "div.invitation-app.motion-still > section.intro > div.intro-heading > h1.bismillah \"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\"",
+   "msg": "the first screen holds no number, price, date, place, platform or genre",
+   "fix": "put one hard fact from the brief on the first screen: a number, a price, a date, the place, the platforms it runs on or a game's genre; take it from the brief or remove the claim",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "copy-fact"
+   ],
+   "wheres": [
+    "div.invitation-app.motion-still > section.intro > div.intro-heading > h1.bismillah \"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ\""
+   ]
+  },
+  {
+   "check": "tilt",
+   "where": "section.intro > div.envelope-scene > button.envelope-button > span.envelope-stage \"WITH LOVE, YOU ARE INVITED A & S 24 DECE\"",
+   "msg": "rotated -8.0°",
+   "fix": "set it straight",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "consistency",
+   "ids": [
+    "tilt"
+   ],
+   "wheres": [
+    "section.intro > div.envelope-scene > button.envelope-button > span.envelope-stage \"WITH LOVE, YOU ARE INVITED A & S 24 DECE\""
+   ]
+  },
+  {
+   "check": "effect-kind",
+   "where": "(the page)",
+   "msg": "a place page (--type) moves with the scroll: scroll libraries or timelines (Lenis): effects fit tech, gaming and software pages and a product with a technical subject, never a place, shop or service page (house rule)",
+   "fix": "take the scroll-driven motion off: on a place, shop or service page the page scrolls plainly and the parts sit still",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "effect-kind"
+   ],
+   "wheres": [
+    "(the page)"
+   ]
+  },
+  {
+   "check": "moment-none",
+   "where": "(the page)",
+   "msg": "a place page (--type) deals no moment: every kind carries one, two on a long page (moments.md)",
+   "fix": "deal one (moments.mjs pick --page place --photo) and mount it in its own section",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "moment-none"
+   ],
+   "wheres": [
+    "(the page)"
+   ]
+  },
+  {
+   "check": "container-edges",
+   "where": "div#root \"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِWI\"",
+   "msg": "a <div> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)",
+   "fix": "build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing",
+   "widths": [
+    1440
+   ],
+   "from": "consistency",
+   "ids": [
+    "container-edges"
+   ],
+   "wheres": [
+    "div#root \"بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِWI\""
+   ]
+  },
+  {
+   "check": "container",
+   "where": "page",
+   "msg": "no .wrap",
+   "fix": "put the content in one .wrap",
+   "widths": [
+    1440,
+    390
+   ],
+   "from": "layout",
+   "ids": [
+    "container"
+   ],
+   "wheres": [
+    "page"
+   ]
+  }
+ ],
+ "waived": [],
+ "warnCount": 5,
+ "at": "2026-11-16T06:37:56.112Z",
+ "openTold": true
+}

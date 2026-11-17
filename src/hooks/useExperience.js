@@ -126,71 +126,64 @@ export function useInvitationScroll(enabled) {
   }, [enabled])
 }
 
-// A tiny original pentatonic ambient score. No audio download or animation loop.
-// An optional supplied recording replaces this through invitation.audioSrc.
+// The supplied recording loads only after a sound-enabled user gesture.
 export function useMusic(src) {
   const [playing, setPlaying] = useState(false)
+  const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
-  const engine = useRef(null)
-  const interval = useRef(null)
-  const stopped = useRef(true)
+  const player = useRef(null)
+  const attempt = useRef(0)
 
   const stop = useCallback(() => {
-    stopped.current = true
-    clearInterval(interval.current)
-    const current = engine.current
-    if (current?.audio) current.audio.pause()
-    if (current?.context?.state === 'running') current.context.suspend().catch(() => {})
+    attempt.current += 1
+    const audio = player.current
+    if (audio) {
+      audio.pause()
+      // Cancel an initial stalled request; keep the position once playback is ready.
+      if (audio.readyState < 2) {
+        audio.removeAttribute('src')
+        audio.load()
+      }
+    }
+    setLoading(false)
     setPlaying(false)
   }, [])
 
   const start = useCallback(async () => {
+    const request = ++attempt.current
     setError('')
-    stopped.current = false
+    if (!src) return
+    setLoading(true)
     try {
-      if (src) {
-        if (!engine.current) {
-          const audio = new Audio(src)
-          audio.loop = true
-          audio.volume = 0.35
-          engine.current = { audio }
-        }
-        await engine.current.audio.play()
-      } else {
-        if (!engine.current) {
-          const AudioContext = window.AudioContext || window.webkitAudioContext
-          if (!AudioContext) throw new Error('Audio unavailable')
-          engine.current = { context: new AudioContext(), phrase: 0 }
-        }
-        const current = engine.current
-        await current.context.resume()
-        if (stopped.current) { stop(); return }
-        const phrases = [[261.63, 329.63, 392], [220, 261.63, 329.63], [174.61, 261.63, 349.23], [196, 293.66, 392]]
-        const schedule = () => {
-          if (current.context.state !== 'running') return
-          const notes = phrases[current.phrase++ % phrases.length]
-          notes.forEach((frequency, index) => {
-            const oscillator = current.context.createOscillator()
-            const gain = current.context.createGain()
-            const now = current.context.currentTime + index * 0.45
-            oscillator.type = 'sine'
-            oscillator.frequency.value = frequency
-            gain.gain.setValueAtTime(0, now)
-            gain.gain.linearRampToValueAtTime(0.025, now + 0.08)
-            gain.gain.exponentialRampToValueAtTime(0.0001, now + 3.6)
-            oscillator.connect(gain).connect(current.context.destination)
-            oscillator.start(now)
-            oscillator.stop(now + 3.7)
-            oscillator.onended = () => { oscillator.disconnect(); gain.disconnect() }
-          })
-        }
-        schedule()
-        clearInterval(interval.current)
-        interval.current = setInterval(schedule, 4600)
+      if (!player.current) {
+        const audio = new Audio()
+        audio.preload = 'none'
+        audio.loop = true
+        audio.volume = 0.35
+        player.current = audio
       }
-      if (stopped.current) { stop(); return }
+      const audio = player.current
+      const failed = () => {
+        if (request !== attempt.current) return
+        stop()
+        setError('Sound could not start. Tap the sound button to try again.')
+      }
+      audio.onerror = failed
+      audio.onwaiting = () => {
+        if (request === attempt.current && !audio.paused) setLoading(true)
+      }
+      audio.onplaying = () => {
+        if (request !== attempt.current) return
+        setLoading(false)
+        setPlaying(true)
+      }
+      if (!audio.getAttribute('src')) audio.src = src
+      await audio.play()
+      if (request !== attempt.current) return
+      setLoading(false)
       setPlaying(true)
     } catch {
+      if (request !== attempt.current) return
       stop()
       setError('Sound could not start. Tap the sound button to try again.')
     }
@@ -201,12 +194,18 @@ export function useMusic(src) {
     document.addEventListener('visibilitychange', onVisibility)
     return () => {
       document.removeEventListener('visibilitychange', onVisibility)
-      clearInterval(interval.current)
-      engine.current?.audio?.pause()
-      engine.current?.context?.close().catch(() => {})
-      engine.current = null
+      attempt.current += 1
+      if (player.current) {
+        player.current.onerror = null
+        player.current.onwaiting = null
+        player.current.onplaying = null
+        player.current.pause()
+        player.current.removeAttribute('src')
+        player.current.load()
+        player.current = null
+      }
     }
-  }, [stop])
+  }, [src, stop])
 
-  return { playing, error, start, stop }
+  return { playing, loading, error, start, stop }
 }

@@ -3,6 +3,8 @@ import CalendarLink from './CalendarLink'
 import { invitation } from '../data/invitation'
 import { assets } from '../lib/assets'
 import SceneArt from './SceneArt'
+import CoupleDetails from './CoupleDetails'
+import './CardDetails.css'
 
 // Keep the unconfigured preview graceful without inventing a couple's names.
 const previewName = (name, fallback) => /^(Bride|Groom)[’']s name$/.test(name) ? fallback : name
@@ -24,7 +26,7 @@ export default function MainInvitation({ headingRef }) {
           <img src={assets.flowers} width="520" height="433" alt="" decoding="async" />
         </div>
         <div className="hero-content">
-          <p className="hero-invitation-line">With grateful hearts, <br className="invitation-break" />we invite you to celebrate <br />our Nikah</p>
+          <p className="hero-invitation-line">By Allah’s grace, <br className="invitation-break" />you are invited to the <br />Nikkah of</p>
           <Ornament />
           <h1 id="couple-title" ref={headingRef} tabIndex="-1">
             <span style={{ '--name-scale': nameScale(bride) }}>{bride}</span>
@@ -34,7 +36,6 @@ export default function MainInvitation({ headingRef }) {
           <Ornament />
           <p className="date-label">{invitation.dateLabel}</p>
         </div>
-        <a className="scroll-link" href="#a-promise"><span>OUR STORY BEGINS</span><Icon name="down" /></a>
       </section>
 
       <nav className="invitation-nav" aria-label="Invitation sections">
@@ -57,12 +58,11 @@ export default function MainInvitation({ headingRef }) {
         </div>
       </section>
 
+      <CoupleDetails />
+
       <section className={`celebration-section section-space ${invitation.bride.family || invitation.groom.family ? '' : 'no-family-details'}`} id="celebration" aria-labelledby="celebration-title">
         <div className="section-heading">
-          <span className="eyebrow">A DAY OF LOVE & BLESSINGS</span>
-          <h2 id="celebration-title">The celebration</h2>
-          <Ornament />
-          <p>Together with our families,<br />we would be honoured by your presence.</p>
+          <h2 id="celebration-title">A day of love and blessing</h2>
         </div>
 
         {(invitation.bride.family || invitation.groom.family) && <div className={`family-line ${invitation.bride.family && invitation.groom.family ? '' : 'single-family'}`}>
@@ -78,10 +78,10 @@ export default function MainInvitation({ headingRef }) {
         <div className="event-list">
           {invitation.events.map((event, index) => (
             <article className="event" key={`${event.title}-${index}`}>
-              <span className="event-number">0{index + 1}</span>
-              <Ornament />
               <h3>{event.title}</h3>
               {event.date && <time className="event-date" dateTime={event.dateTime}>{event.date}</time>}
+              <span className="event-day">{invitation.dayLabel}</span>
+              <span className="event-hijri">{invitation.hijriDateLabel}</span>
               <p>{event.description}</p>
               <span className="event-time">{event.time}</span>
               <CalendarLink event={event} />
@@ -140,6 +140,7 @@ export default function MainInvitation({ headingRef }) {
           <h2>Our beginning.<br /><em>Made brighter by you.</em></h2>
           <p>{invitation.closing}</p>
           <p className="closing-names">{invitation.bride.name} <em>&</em> {invitation.groom.name}</p>
+          {invitation.sharingJoy?.length > 0 && <div className="sharing-joy"><span className="eyebrow">SHARING IN THEIR JOY</span><p>{invitation.sharingJoy.join(', ').replace(/, ([^,]*)$/, ' and $1')}</p></div>}
           {invitation.contact.phone && <a className="text-button" href={`tel:${invitation.contact.phone.replace(/[^+\d]/g, '')}`}>{invitation.contact.label}</a>}
           <p className="closing-arabic" lang="ar" dir="rtl">إِنْ شَاءَ ٱللَّٰهُ</p>
           <span className="eyebrow closing-signoff">A BEAUTIFUL BEGINNING, TOGETHER.</span>

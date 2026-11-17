@@ -7,12 +7,14 @@ import { invitation } from './data/invitation'
 import { useMusic, useInvitationScroll, useReducedMotion, usePageVisibility } from './hooks/useExperience'
 import { prepareIntroAssets, prepareMainAssets } from './lib/assets'
 import './App.css'
+import './Typography.css'
 
 export default function App() {
   const [phase, setPhase] = useState('closed')
   const [motionPaused, setMotionPaused] = useState(false)
   const reducedMotion = useReducedMotion()
   const music = useMusic(invitation.audioSrc)
+  const soundActive = music.playing || music.loading
   const timer = useRef(null)
   const artworkReady = useRef(Promise.resolve())
   const introReady = useRef(Promise.resolve())
@@ -136,11 +138,11 @@ export default function App() {
             </button>
             <button
               className={`control-button sound-control ${music.playing ? 'is-playing' : ''}`}
-              onClick={music.playing ? music.stop : music.start}
-              aria-pressed={music.playing}
-              aria-label={music.playing ? 'Mute music' : 'Play music'}
+              onClick={soundActive ? music.stop : music.start}
+              aria-pressed={soundActive}
+              aria-label={soundActive ? 'Mute music' : 'Play music'}
             >
-              <Icon name={music.playing ? 'sound' : 'mute'} /><span>{music.playing ? 'Sound on' : 'Sound off'}</span>
+              <Icon name={soundActive ? 'sound' : 'mute'} /><span>{music.loading ? 'Loading sound…' : music.playing ? 'Sound on' : 'Sound off'}</span>
             </button>
           </div>
           <span className="audio-status" role="status">{music.error}</span>

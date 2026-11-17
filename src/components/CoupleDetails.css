@@ -1,0 +1,57 @@
+.couple-details {
+  --profile-mark: clamp(66px, 19vw, 92px);
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+  min-height: 900px;
+  padding: 40px 20px 190px;
+  color: var(--invite-ink);
+  background: var(--invite-paper);
+}
+.couple-paper { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
+.couple-paper img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.couple-desktop-flowers { display: none; }
+.couple-heading { position: relative; text-align: center; }
+.couple-heading h2 { margin: 0; font-family: var(--font-serif); font-size: var(--invite-heading); font-weight: 400; line-height: 1.2; letter-spacing: -.035em; }
+.couple-heading .ornament { width: 116px; height: 16px; margin: 14px auto 18px; }
+.couple-heading > p { margin: 0; font-family: var(--font-serif); font-size: var(--invite-body); line-height: 1.7; }
+.couple-profiles { width: min(100%, 440px); margin: 40px auto 0; }
+.couple-profile { position: relative; display: grid; grid-template-columns: var(--profile-mark) minmax(0, 1fr); column-gap: clamp(16px, 4vw, 20px); align-items: start; }
+.couple-profile + .couple-profile { margin-top: 40px; }
+.couple-profile-copy { position: relative; z-index: 1; min-width: 0; }
+.couple-monogram { position: relative; width: 100%; height: var(--profile-mark); margin-top: 10px; pointer-events: none; }
+.couple-monogram img { position: absolute; inset: -4px; width: calc(100% + 8px); max-width: none; height: auto; }
+.couple-monogram > span { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--font-names); font-size: calc(var(--profile-mark) * .57); font-weight: 400; line-height: 1; transform: translate(-2px, 6px); }
+.couple-profile-bride .couple-monogram > span { font-family: 'Pinyon Script', var(--font-names); transform: translate(-5px, 4px); }
+.couple-vine { position: absolute; top: calc(var(--profile-mark) + 4px); bottom: -62px; left: calc(var(--profile-mark) / 2 - 32px); width: 64px; overflow: hidden; pointer-events: none; }
+.couple-vine img { display: block; width: 64px; height: 100%; object-fit: cover; object-position: top; }
+.couple-vine-final { bottom: 0; }
+.couple-profile-name { margin: 0; font-family: var(--font-names); font-size: clamp(44px, 12vw, 56px); font-weight: 400; line-height: .95; letter-spacing: normal; overflow-wrap: normal; }
+.couple-profile-bride .couple-profile-name::first-letter { font-family: 'Pinyon Script', var(--font-names); }
+.couple-relation { margin: 12px 0 0; font-family: var(--font-serif); font-size: 17px; line-height: 26px; }
+.couple-parents { margin: 10px 0 0; font-family: var(--font-serif); font-size: 17px; line-height: 26px; }
+.couple-parents > span { display: block; overflow-wrap: break-word; }
+.couple-family-address { margin: 18px 0 0; color: var(--invite-muted); font-family: var(--font-serif); font-size: 16px; font-style: italic; line-height: 24px; overflow-wrap: break-word; }
+.couple-family-address > span { display: block; }
+@media (max-width: 359px) {
+  .couple-details { padding: 96px 16px 190px; }
+  .couple-relation, .couple-parents { font-size: 16px; line-height: 25px; }
+  .couple-family-address { font-size: 15px; }
+}
+@media (min-width: 601px) and (max-width: 1023px) {
+  .couple-heading h2 { font-size: 38px; }
+  .couple-details { padding-top: 64px; }
+}
+@media (min-width: 1024px) {
+  .couple-details { --profile-mark: 92px; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); align-items: center; min-height: 900px; padding: 105px var(--invite-gutter); column-gap: 64px; }
+  .couple-paper img { opacity: .65; }
+  .couple-heading { text-align: left; }
+  .couple-heading .ornament { width: 140px; height: 20px; margin: 24px 0; }
+  .couple-heading > p { max-width: 28ch; font-size: 18px; }
+  .couple-profiles { margin: 0; width: min(100%, 520px); }
+  .couple-profile { column-gap: 24px; }
+  .couple-profile-name { font-size: 64px; }
+  .couple-desktop-flowers { display: block; position: absolute; width: clamp(220px, 24%, 340px); height: auto; z-index: -1; pointer-events: none; }
+  .couple-desktop-flowers-top { top: -25px; left: -35px; }
+  .couple-desktop-flowers-bottom { bottom: -30px; right: -30px; transform: rotate(180deg); }
+}

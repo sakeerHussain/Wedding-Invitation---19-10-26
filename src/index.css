@@ -32,3 +32,22 @@ a { color: inherit; }
 button:focus-visible, a:focus-visible { outline: 2px solid #835e43; outline-offset: 6px; }
 ::selection { background: #ddbab4; color: #493a32; }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation: none !important; transition: none !important; } }
+
+/* Wedding stationery tokens: existing ivory, antique gold and olive palette. */
+:root {
+  --invite-ink: #503719;
+  --invite-muted: #715638;
+  --invite-gold: #9c7538;
+  --invite-paper: #f4ead7;
+  --invite-line-strong: #9c7b4d;
+  --invite-focus: #795126;
+  --invite-body: clamp(1rem, .85rem + .4vw, 1.125rem);
+  --invite-label: clamp(.8125rem, .75rem + .15vw, .875rem);
+  --invite-control: clamp(.875rem, .825rem + .125vw, .9375rem);
+  --invite-secondary: clamp(1.125rem, 1rem + .3vw, 1.25rem);
+  --invite-heading: clamp(2.125rem, 3.6vw, 3.25rem);
+  --invite-detail-heading: clamp(1.875rem, 2.4vw, 2.25rem);
+  --invite-section-space: clamp(72px, 7vw, 112px);
+  --invite-gutter: clamp(24px, 6vw, 88px);
+}
+:where(a, button) { scroll-margin-block: 88px; }

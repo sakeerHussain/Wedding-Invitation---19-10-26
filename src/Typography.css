@@ -1,0 +1,81 @@
+/* Shared optical sizes, retaining the invitation's locally hosted font families. */
+.open-button,
+.intro-action .text-button,
+.button,
+.event .button,
+.closing-content .text-button {
+  font-size: var(--invite-control);
+  line-height: 1.5;
+  letter-spacing: .02em;
+}
+.open-button { letter-spacing: .08em; }
+.intro-couple > span { font-size: clamp(1.875rem, 7.5vw, 2.375rem); }
+
+.hero-invitation-line,
+.date-label {
+  font-size: clamp(.875rem, 2.8cqw, 1rem);
+  line-height: 1.6;
+  letter-spacing: .08em;
+}
+.invitation-nav a {
+  font-size: clamp(.75rem, 3.35vw, .875rem);
+  line-height: 1.5;
+  letter-spacing: .02em;
+}
+.eyebrow,
+.family-caption,
+.vow-note .eyebrow,
+.closing-signoff,
+.control-button {
+  font-size: var(--invite-label);
+  line-height: 1.6;
+  letter-spacing: .06em;
+}
+.control-button { line-height: 1.5; letter-spacing: .01em; }
+.verse-source { font-size: var(--invite-label); line-height: 1.6; letter-spacing: .06em; }
+
+.section-heading h2,
+.couple-heading h2 {
+  font-size: var(--invite-heading);
+  line-height: 1.18;
+  text-wrap: balance;
+}
+#celebration-title { font-size: var(--invite-heading); line-height: 1.2; }
+.promise-section h2 { font-size: clamp(2rem, 3.6vw, 3.25rem); line-height: 1.22; }
+.arabic-verse { font-size: clamp(1.875rem, 3vw, 2.75rem); line-height: 1.8; }
+
+.body-copy,
+.section-heading > p,
+.couple-heading > p,
+.venue-address,
+.closing-content > p:not(.closing-names):not(.closing-arabic) {
+  font-size: var(--invite-body);
+  line-height: 1.75;
+}
+
+.event h3,
+.venue-insert h3 { font-size: var(--invite-detail-heading); line-height: 1.15; }
+.event-date { font-size: clamp(1.375rem, 1.8vw, 1.75rem); line-height: 1.4; }
+.event-day,
+.event-hijri { font-size: var(--invite-body); line-height: 1.65; }
+.event p { font-size: var(--invite-secondary); line-height: 1.5; }
+.event-time { font-size: clamp(.875rem, .8rem + .3vw, 1rem); line-height: 1.6; letter-spacing: .04em; }
+
+.vow-note h2 { font-size: clamp(2.25rem, 10.8vw, 3rem); line-height: 1.08; letter-spacing: -.025em; }
+.vow-note p,
+.venue-note,
+.sharing-joy p { font-size: var(--invite-secondary); line-height: 1.6; }
+.venue-schedule p > span:first-child { font-size: clamp(1.25rem, 1.6vw, 1.5rem); line-height: 1.3; }
+.venue-schedule p > span:last-child { font-size: var(--invite-body); line-height: 1.65; }
+
+.closing h2 { font-size: clamp(2rem, 8.7vw, 2.625rem); line-height: 1.18; }
+.closing-names { font-size: clamp(1.5rem, 5.7vw, 2rem); line-height: 1.4; }
+.closing-arabic { font-size: clamp(1.75rem, 2.4vw, 2.125rem); line-height: 1.7; }
+.audio-status { font-size: var(--invite-control); line-height: 1.6; }
+
+@media (min-width: 1024px) {
+  .hero-invitation-line,
+  .date-label { font-size: clamp(1rem, 1.2cqw, 1.125rem); }
+  .vow-note h2 { font-size: clamp(3rem, 4vw, 3.75rem); }
+  .closing h2 { font-size: clamp(2.75rem, 3.8vw, 3.5rem); }
+}

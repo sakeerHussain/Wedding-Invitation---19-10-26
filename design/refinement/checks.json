@@ -1,0 +1,344 @@
+[
+  {
+    "width": 320,
+    "overflow": false,
+    "heroOverlap": false,
+    "profileOverflow": false,
+    "buttons": [
+      {
+        "label": "THE PROMISE",
+        "height": 48
+      },
+      {
+        "label": "THE CELEBRATION",
+        "height": 49
+      },
+      {
+        "label": "THE VENUE",
+        "height": 48
+      },
+      {
+        "label": "Save Nikah date",
+        "height": 48
+      },
+      {
+        "label": "Get directions",
+        "height": 70
+      },
+      {
+        "label": "Motion off",
+        "height": 48
+      },
+      {
+        "label": "Sound off",
+        "height": 48
+      }
+    ],
+    "brokenImages": [],
+    "anchors": [
+      {
+        "href": "#celebration",
+        "exists": true
+      },
+      {
+        "href": "#a-promise",
+        "exists": true
+      },
+      {
+        "href": "#celebration",
+        "exists": true
+      },
+      {
+        "href": "#venue",
+        "exists": true
+      }
+    ],
+    "errors": [],
+    "bad": []
+  },
+  {
+    "width": 390,
+    "overflow": false,
+    "heroOverlap": false,
+    "profileOverflow": false,
+    "buttons": [
+      {
+        "label": "THE PROMISE",
+        "height": 48
+      },
+      {
+        "label": "THE CELEBRATION",
+        "height": 48
+      },
+      {
+        "label": "THE VENUE",
+        "height": 48
+      },
+      {
+        "label": "Save Nikah date",
+        "height": 48
+      },
+      {
+        "label": "Get directions",
+        "height": 49
+      },
+      {
+        "label": "Motion off",
+        "height": 48
+      },
+      {
+        "label": "Sound off",
+        "height": 48
+      }
+    ],
+    "brokenImages": [],
+    "anchors": [
+      {
+        "href": "#celebration",
+        "exists": true
+      },
+      {
+        "href": "#a-promise",
+        "exists": true
+      },
+      {
+        "href": "#celebration",
+        "exists": true
+      },
+      {
+        "href": "#venue",
+        "exists": true
+      }
+    ],
+    "errors": [],
+    "bad": []
+  },
+  {
+    "width": 768,
+    "overflow": false,
+    "heroOverlap": false,
+    "profileOverflow": false,
+    "buttons": [
+      {
+        "label": "THE PROMISE",
+        "height": 48
+      },
+      {
+        "label": "THE CELEBRATION",
+        "height": 48
+      },
+      {
+        "label": "THE VENUE",
+        "height": 48
+      },
+      {
+        "label": "Save Nikah date",
+        "height": 48
+      },
+      {
+        "label": "Get directions",
+        "height": 49
+      },
+      {
+        "label": "Motion off",
+        "height": 48
+      },
+      {
+        "label": "Sound off",
+        "height": 48
+      }
+    ],
+    "brokenImages": [],
+    "anchors": [
+      {
+        "href": "#celebration",
+        "exists": true
+      },
+      {
+        "href": "#a-promise",
+        "exists": true
+      },
+      {
+        "href": "#celebration",
+        "exists": true
+      },
+      {
+        "href": "#venue",
+        "exists": true
+      }
+    ],
+    "errors": [],
+    "bad": []
+  },
+  {
+    "width": 820,
+    "overflow": false,
+    "heroOverlap": false,
+    "profileOverflow": false,
+    "buttons": [
+      {
+        "label": "THE PROMISE",
+        "height": 48
+      },
+      {
+        "label": "THE CELEBRATION",
+        "height": 48
+      },
+      {
+        "label": "THE VENUE",
+        "height": 48
+      },
+      {
+        "label": "Save Nikah date",
+        "height": 48
+      },
+      {
+        "label": "Get directions",
+        "height": 49
+      },
+      {
+        "label": "Motion off",
+        "height": 48
+      },
+      {
+        "label": "Sound off",
+        "height": 48
+      }
+    ],
+    "brokenImages": [],
+    "anchors": [
+      {
+        "href": "#celebration",
+        "exists": true
+      },
+      {
+        "href": "#a-promise",
+        "exists": true
+      },
+      {
+        "href": "#celebration",
+        "exists": true
+      },
+      {
+        "href": "#venue",
+        "exists": true
+      }
+    ],
+    "errors": [],
+    "bad": []
+  },
+  {
+    "width": 1024,
+    "overflow": false,
+    "heroOverlap": false,
+    "profileOverflow": false,
+    "buttons": [
+      {
+        "label": "THE PROMISE",
+        "height": 48
+      },
+      {
+        "label": "THE CELEBRATION",
+        "height": 48
+      },
+      {
+        "label": "THE VENUE",
+        "height": 48
+      },
+      {
+        "label": "Save Nikah date",
+        "height": 48
+      },
+      {
+        "label": "Get directions",
+        "height": 49
+      },
+      {
+        "label": "Motion off",
+        "height": 48
+      },
+      {
+        "label": "Sound off",
+        "height": 48
+      }
+    ],
+    "brokenImages": [],
+    "anchors": [
+      {
+        "href": "#celebration",
+        "exists": true
+      },
+      {
+        "href": "#a-promise",
+        "exists": true
+      },
+      {
+        "href": "#celebration",
+        "exists": true
+      },
+      {
+        "href": "#venue",
+        "exists": true
+      }
+    ],
+    "errors": [],
+    "bad": []
+  },
+  {
+    "width": 1440,
+    "overflow": false,
+    "heroOverlap": false,
+    "profileOverflow": false,
+    "buttons": [
+      {
+        "label": "THE PROMISE",
+        "height": 48
+      },
+      {
+        "label": "THE CELEBRATION",
+        "height": 48
+      },
+      {
+        "label": "THE VENUE",
+        "height": 48
+      },
+      {
+        "label": "Save Nikah date",
+        "height": 48
+      },
+      {
+        "label": "Get directions",
+        "height": 49
+      },
+      {
+        "label": "Motion off",
+        "height": 48
+      },
+      {
+        "label": "Sound off",
+        "height": 48
+      }
+    ],
+    "brokenImages": [],
+    "anchors": [
+      {
+        "href": "#celebration",
+        "exists": true
+      },
+      {
+        "href": "#a-promise",
+        "exists": true
+      },
+      {
+        "href": "#celebration",
+        "exists": true
+      },
+      {
+        "href": "#venue",
+        "exists": true
+      }
+    ],
+    "errors": [],
+    "bad": []
+  }
+]

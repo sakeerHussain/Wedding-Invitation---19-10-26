@@ -1,0 +1,304 @@
+{
+ "page": "http://127.0.0.1:5180/",
+ "partial": false,
+ "results": [
+  {
+   "w": 1440,
+   "rows": [
+    {
+     "name": "host CPU load (before/after)",
+     "value": "60/32 %",
+     "verdict": "WARN",
+     "note": "busy host: timing verdicts capped at WARN, rerun when idle"
+    },
+    {
+     "name": "total transfer",
+     "value": "866.6 KiB",
+     "verdict": "PASS",
+     "note": "html 1K  css 10.6K  js 80.2K  font 182.5K  img 590.7K  other 1.6K"
+    },
+    {
+     "name": "requests",
+     "value": 17,
+     "verdict": "PASS",
+     "note": "16 by load"
+    },
+    {
+     "name": "images bytes",
+     "value": "590.7 KiB",
+     "verdict": "PASS",
+     "note": "7 files"
+    },
+    {
+     "name": "largest image",
+     "value": "159.3 KiB",
+     "verdict": "PASS",
+     "note": "assets/stationery-layered-desktop-BCLOJiLB.webp"
+    },
+    {
+     "name": "JS parsed",
+     "value": "259.3 KiB",
+     "verdict": "PASS",
+     "note": "1 files, 80.2K gz"
+    },
+    {
+     "name": "CSS",
+     "value": "10.6 KiB",
+     "verdict": "PASS",
+     "note": "1 files"
+    },
+    {
+     "name": "font families",
+     "value": 4,
+     "verdict": "FAIL",
+     "note": "Lora, Manrope, Great Vibes, Pinyon Script"
+    },
+    {
+     "name": "font files",
+     "value": 5,
+     "verdict": "WARN",
+     "note": "182.5K"
+    },
+    {
+     "name": "font bytes",
+     "value": "182.5 KiB",
+     "verdict": "WARN",
+     "note": ""
+    },
+    {
+     "name": "images without width+height",
+     "value": 0,
+     "verdict": "PASS",
+     "note": ""
+    },
+    {
+     "name": "below-fold images not lazy",
+     "value": 0,
+     "verdict": "PASS",
+     "note": ""
+    },
+    {
+     "name": "oversized images (natural > 2.2x shown)",
+     "value": 0,
+     "verdict": "PASS",
+     "note": ""
+    },
+    {
+     "name": "WebGL live at load",
+     "value": 0,
+     "verdict": "PASS",
+     "note": ""
+    },
+    {
+     "name": "WebGL live at bottom",
+     "value": 0,
+     "verdict": "PASS",
+     "note": ""
+    },
+    {
+     "name": "WebGL peak live",
+     "value": 0,
+     "verdict": "PASS",
+     "note": "0 contexts made in all"
+    },
+    {
+     "name": "long tasks",
+     "value": 2,
+     "verdict": "PASS",
+     "note": "runs 3, 0..2, busy host, max 97ms"
+    },
+    {
+     "name": "blocking time",
+     "value": "70 ms",
+     "verdict": "PASS",
+     "note": "runs 3, 0..71, busy host ms; at load 70ms"
+    },
+    {
+     "name": "FCP (CPU, relative)",
+     "value": "684 ms",
+     "verdict": "PASS",
+     "note": "runs 3, 388..756, busy host"
+    },
+    {
+     "name": "LCP (CPU, relative)",
+     "value": "684 ms",
+     "verdict": "PASS",
+     "note": "runs 3, 388..756, busy host, img"
+    },
+    {
+     "name": "layout shift",
+     "value": "0.000",
+     "verdict": "PASS",
+     "note": "runs 3, 0.000..0.000; at load 0.000"
+    },
+    {
+     "name": "modules loaded, never mounted",
+     "value": 0,
+     "verdict": "PASS",
+     "note": ""
+    },
+    {
+     "name": "broken requests",
+     "value": 0,
+     "verdict": "PASS",
+     "note": ""
+    },
+    {
+     "name": "page height",
+     "value": "1 screens",
+     "verdict": "PASS",
+     "note": "DOM 76 nodes"
+    }
+   ]
+  },
+  {
+   "w": 390,
+   "rows": [
+    {
+     "name": "host CPU load (before/after)",
+     "value": "60/32 %",
+     "verdict": "WARN",
+     "note": "busy host: timing verdicts capped at WARN, rerun when idle"
+    },
+    {
+     "name": "total transfer",
+     "value": "990.4 KiB",
+     "verdict": "PASS",
+     "note": "html 1K  css 10.6K  js 80.2K  font 182.5K  img 715.1K  other 1K"
+    },
+    {
+     "name": "requests",
+     "value": 16,
+     "verdict": "PASS",
+     "note": "15 by load"
+    },
+    {
+     "name": "images bytes",
+     "value": "715.1 KiB",
+     "verdict": "PASS",
+     "note": "7 files"
+    },
+    {
+     "name": "largest image",
+     "value": "219.9 KiB",
+     "verdict": "PASS",
+     "note": "assets/stationery-layered-DFxfE2bW.webp"
+    },
+    {
+     "name": "JS parsed",
+     "value": "259.3 KiB",
+     "verdict": "PASS",
+     "note": "1 files, 80.2K gz"
+    },
+    {
+     "name": "CSS",
+     "value": "10.6 KiB",
+     "verdict": "PASS",
+     "note": "1 files"
+    },
+    {
+     "name": "font families",
+     "value": 4,
+     "verdict": "FAIL",
+     "note": "Lora, Manrope, Great Vibes, Pinyon Script"
+    },
+    {
+     "name": "font files",
+     "value": 5,
+     "verdict": "WARN",
+     "note": "182.5K"
+    },
+    {
+     "name": "font bytes",
+     "value": "182.5 KiB",
+     "verdict": "WARN",
+     "note": ""
+    },
+    {
+     "name": "images without width+height",
+     "value": 0,
+     "verdict": "PASS",
+     "note": ""
+    },
+    {
+     "name": "below-fold images not lazy",
+     "value": 0,
+     "verdict": "PASS",
+     "note": ""
+    },
+    {
+     "name": "oversized images (natural > 2.2x shown)",
+     "value": 4,
+     "verdict": "FAIL",
+     "note": "envelope-v3-DX3H5CSD.webp 1200px for 408; envelope-v3-DX3H5CSD.webp 1200px for 408; bg embossed-paper-VCuJTQyX.webp 850px for 372"
+    },
+    {
+     "name": "WebGL live at load",
+     "value": 0,
+     "verdict": "PASS",
+     "note": ""
+    },
+    {
+     "name": "WebGL live at bottom",
+     "value": 0,
+     "verdict": "PASS",
+     "note": ""
+    },
+    {
+     "name": "WebGL peak live",
+     "value": 0,
+     "verdict": "PASS",
+     "note": "0 contexts made in all"
+    },
+    {
+     "name": "long tasks",
+     "value": 0,
+     "verdict": "PASS",
+     "note": "runs 3, 0..1, busy host, max 52ms"
+    },
+    {
+     "name": "blocking time",
+     "value": "0 ms",
+     "verdict": "PASS",
+     "note": "runs 3, 0..2, busy host ms; at load 0ms"
+    },
+    {
+     "name": "FCP (CPU, relative)",
+     "value": "336 ms",
+     "verdict": "PASS",
+     "note": "runs 3, 300..476, busy host"
+    },
+    {
+     "name": "LCP (CPU, relative)",
+     "value": "336 ms",
+     "verdict": "PASS",
+     "note": "runs 3, 300..476, busy host, img.envelope-body"
+    },
+    {
+     "name": "layout shift",
+     "value": "0.000",
+     "verdict": "PASS",
+     "note": "runs 3, 0.000..0.000; at load 0.000"
+    },
+    {
+     "name": "modules loaded, never mounted",
+     "value": 0,
+     "verdict": "PASS",
+     "note": ""
+    },
+    {
+     "name": "broken requests",
+     "value": 0,
+     "verdict": "PASS",
+     "note": ""
+    },
+    {
+     "name": "page height",
+     "value": "1 screens",
+     "verdict": "PASS",
+     "note": "DOM 76 nodes"
+    }
+   ]
+  }
+ ]
+}

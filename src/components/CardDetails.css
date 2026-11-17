@@ -1,0 +1,15 @@
+.event-day, .event-hijri { display: block; font-family: var(--font-serif); color: var(--invite-muted); font-size: 15px; line-height: 1.6; }
+.event-day { margin: -8px 0 4px; }
+.event-hijri { margin-bottom: 24px; font-style: italic; }
+.sharing-joy { margin: 24px 0 16px; }
+.sharing-joy p { margin: 8px 0 0; font-family: var(--font-serif); font-size: 18px; line-height: 1.6; }
+.closing-content .text-button { max-width: 100%; font-size: 13px; line-height: 1.7; }
+
+/* A single centered heading and event group at every screen size. */
+#celebration { display: block; }
+#celebration .section-heading { text-align: center; }
+#celebration-title { max-width: 24ch; margin: 0 auto; font-size: clamp(32px, 3.5vw, 50px); line-height: 1.2; text-wrap: balance; }
+#celebration .event-list { width: min(100%, 640px); margin: 40px auto 0; }
+@media (max-width: 600px) {
+  #celebration .event-list { margin-top: 32px; }
+}
